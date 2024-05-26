@@ -1,0 +1,54 @@
+<div class="mb-20" fxLayout="row" fxLayout.lt-md="column" fxFlex fxLayoutGap="20px">
+    <div fxFlex>
+        <app-stat [bgClass]="'warn'" [icon]="'view_list'" [count]="countries.length"
+            [label]="'All Countries!'"></app-stat>
+    </div>
+    <div fxFlex>
+        <app-stat [bgClass]="'danger'" [icon]="'dashboard'" [count]="sports.length" [label]="'All Sports!'"></app-stat>
+    </div>
+    <div fxFlex>
+        <app-stat [bgClass]="'info'" [icon]="'contact_support'" [count]="events.length" [label]="'Events!'"></app-stat>
+    </div>
+    <div fxFlex>
+        <app-stat [bgClass]="'success'" [icon]="'shopping_cart'" [count]="players.length"
+            [label]="'Players!'"></app-stat>
+    </div>
+</div>
+
+<div class="mat-elevation-z8">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="dateFirstEvent">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.dateFirstEvent}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="idLeague">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> League ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.idLeague}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="strSport">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Sport </th>
+            <td mat-cell *matCellDef="let element"> {{element.strSport}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="strLeague">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> League </th>
+            <td mat-cell *matCellDef="let element"> {{element.strLeague}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="intDivision">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Division </th>
+            <td mat-cell *matCellDef="let element"> {{element.intDivision}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

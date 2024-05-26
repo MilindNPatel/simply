@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" class="fix-nav">
+    <button type="button" mat-icon-button class="visible-md" (click)="toggleSidebar()">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <div class="nav-brand">
+        <img style="width: 18%;float: left;" src="/assets/images/logo1.png">
+        <label style="margin: 17px 0px 0px 4px; float: left;">Simply</label>
+    </div>
+    <span class="nav-spacer"></span>
+    <button mat-icon-button (click)="onLoggedout()">
+        <mat-icon>exit_to_app</mat-icon>
+    </button>
+</mat-toolbar>

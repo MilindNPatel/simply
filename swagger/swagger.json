@@ -1,0 +1,407 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Docs",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/users/signup": {
+      "post": {
+        "summary": "Signup API",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "fn": {
+                  "type": "string",
+                  "required": true
+                },
+                "un": {
+                  "type": "string",
+                  "required": true
+                },
+                "email": {
+                  "type": "string",
+                  "required": true
+                },
+                "pwd": {
+                  "type": "string",
+                  "required": true
+                },
+                "role": {
+                  "type": "string",
+                  "enum": ["SUPER_ADMIN", "ADMIN", "USER"],
+                  "default": "USER"
+                },
+                "add": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "status": true,
+            "message": "",
+            "data": []
+          },
+          "400": {
+            "msg": "Can not find Vat Details"
+          }
+        }
+      }
+    },
+    "/api/v1/users/signin": {
+      "post": {
+        "summary": "Signin API",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "un": {
+                  "type": "string",
+                  "required": true
+                },
+                "pwd": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "status": true,
+            "message": "",
+            "data": []
+          },
+          "400": {
+            "msg": "Can not find Vat Details"
+          }
+        }
+      }
+    },
+    "/api/v1/users/changePassword": {
+      "post": {
+        "summary": "Change Password API",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "apiKey",
+              "properties": {
+                "authorization": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "password": {
+                  "type": "string",
+                  "required": true
+                },
+                "newPassword": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "status": true,
+            "message": "",
+            "data": []
+          },
+          "400": {
+            "msg": "Can not find Vat Details"
+          }
+        }
+      }
+    },
+    "/api/v1/users/forgotPassword": {
+      "post": {
+        "summary": "Forgot Password API",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "status": true,
+            "message": "",
+            "data": []
+          },
+          "400": {
+            "msg": "Can not find Vat Details"
+          }
+        }
+      }
+    },
+    "/api/v1/users/resetPassword": {
+      "post": {
+        "summary": "Reset Password API",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "newPassword": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "status": true,
+            "message": "",
+            "data": []
+          },
+          "400": {
+            "msg": "Can not find Vat Details"
+          }
+        }
+      }
+    },
+    "/api/v1/users/getUsers": {
+      "get": {
+        "summary": "Fetch Users",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "apiKey",
+              "properties": {
+                "authorization": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": []
+          },
+          "400": {
+            "description": "Can not find users"
+          }
+        }
+      }
+    },
+    "/api/v1/users/getUserById/{_id}": {
+      "get": {
+        "summary": "Fetch Specific User Details",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "apiKey",
+              "properties": {
+                "authorization": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          },
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": []
+          },
+          "400": {
+            "description": "Can not find user"
+          }
+        }
+      }
+    },
+    "/api/v1/users/updateUser/{_id}": {
+      "put": {
+        "summary": "Update User API",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "apiKey",
+              "properties": {
+                "authorization": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          },
+          {
+            "name": "_id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": {
+                  "type": "string",
+                  "required": true
+                },
+                "lastName": {
+                  "type": "string",
+                  "required": true
+                },
+                "userName": {
+                  "type": "string",
+                  "required": true
+                },
+                "dateOfBirth": {
+                  "type": "string",
+                  "required": true
+                },
+                "address": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "status": true,
+            "message": "",
+            "data": []
+          },
+          "400": {
+            "msg": "Can not find Vat Details"
+          }
+        }
+      }
+    },
+    "/api/v1/users/updateStatus": {
+      "post": {
+        "summary": "Update User Status API",
+        "tags": ["User"],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "authorization",
+            "in": "header",
+            "required": false,
+            "schema": {
+              "type": "apiKey",
+              "properties": {
+                "authorization": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "required": true
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "status": true,
+            "message": "",
+            "data": []
+          },
+          "400": {
+            "msg": "Can not find Vat Details"
+          }
+        }
+      }
+    }
+  }
+}

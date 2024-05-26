@@ -1,0 +1,8 @@
+{
+    "newUser": "Hi #name Thanks For Signup With MyPoppies \n Login Here using this URL - #link",
+    "resetPassword": "Click here to Reset Password - #link \n Link will expire in 10 min",
+    "order": "Your Order #order is Successfully Placed.",
+    "cancelOrder": "Your Order For #order is Canceled.",
+    "newOrder": "Hi #customer_name. Thank you for your order. Your MyPoppies #order has been recieved! \n Order is under processing until we can confirm that payment is recieved! (followed by order details in HTML format)",
+    "orderCompleted": "Hi #customer_name. We have processed your order.\n (followed by order details in HTML format)"
+}

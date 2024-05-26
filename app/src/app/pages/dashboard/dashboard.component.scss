@@ -1,0 +1,85 @@
+agm-map {
+  height: 400px;
+}
+
+.slot-info {
+  label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  small {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  table {
+    margin-bottom: 15px;
+    th {
+      padding: 5px;
+    }
+  }
+}
+
+.success {
+  animation-name: greenShad;
+  animation-duration: 1s;
+}
+
+/* Standard syntax */
+@keyframes greenShad {
+  from {
+    background-color: green;
+  }
+  to {
+    background-color: #454d55;
+  }
+}
+
+/* Standard syntax */
+@keyframes redShad {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: #454d55;
+  }
+}
+
+.danger {
+  animation-name: redShad;
+  animation-duration: 1s;
+}
+
+.successText {
+  color: green;
+}
+
+.dangerText {
+  color: red;
+}
+
+.mat-dialog-title {
+  margin: 0;
+}
+
+.mat-radio-button {
+  margin-right: 20px;
+}
+
+.m-t-15 {
+  margin-top: 15px;
+}
+
+.m-t.10 {
+  margin-top: 10px;
+}
+
+.margin-field {
+  margin-bottom: -15px;
+}
+
+.validate-msg {
+  font-size: smaller;
+  color: red;
+  font-family: sans-serif;
+}
